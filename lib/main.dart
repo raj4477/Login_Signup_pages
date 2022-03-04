@@ -1,11 +1,15 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mywork/routes/app_page.dart';
 import './pages/pages.dart';
 
-void main() {
-  runApp( MyApp());
+Future  main() async {
+   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  // HomeBinding().dependencies();
+  runApp( const MyApp());
 }
 
 class MyApp extends StatelessWidget {

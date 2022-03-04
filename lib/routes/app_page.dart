@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:mywork/main.dart';
+import 'package:mywork/pages/home.dart';
 import 'package:mywork/pages/signup.dart';
 part 'app_routes.dart';
 
@@ -11,6 +12,11 @@ class AppPages {
       name: _Paths.HOME,
       page: () => RegisterPage(),
       binding: SignUpBinding(),
+    ),
+    GetPage(
+      name: _Paths.WELCOME,
+      page: () => WelcomeView(),
+      binding: WelcomeBinding(),
     ),
   ];
 }

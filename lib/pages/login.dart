@@ -5,23 +5,12 @@ import 'package:mywork/controllers/LoginController.dart';
 import 'package:mywork/widgets/input.dart';
 import '../widgets/button.dart';
 
-// class Login extends StatefulWidget {
-// // final double  height; final double width;
-//   const Login({
-//     Key? key,
-//     // required this.height,required this.width
-//   }) : super(key: key);
-// //  var _radioController ;
-//   @override
-//   _LoginState createState() => _LoginState();
-// }
 
-// class _LoginState extends State<Login> {
   class Login extends GetView<LoginController>{
   
   @override
   Widget build(BuildContext context) {
-    Get.put(LoginController());
+    
     Size _size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Padding(

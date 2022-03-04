@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mywork/controllers/LoginController.dart';
 import 'package:mywork/controllers/SignupController.dart';
+import 'package:mywork/pages/pages.dart';
+import 'package:mywork/routes/app_page.dart';
 import 'package:mywork/widgets/input.dart';
 import '../widgets/button.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -8,6 +11,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 class SignUpBinding extends Bindings {
   @override
   void dependencies() {
+    Get.lazyPut<LoginController>(()=>LoginController());
     Get.lazyPut<SignUpController>(
       () => SignUpController(),
     );
@@ -116,15 +120,25 @@ class SignUp extends GetView<SignUpController> {
                  Row(
                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                    children: [
-                   CircleAvatar( 
-                     backgroundColor: Colors.white,
-                     child: SvgPicture.asset("assets/images/facebook.svg"),),
+                   GestureDetector(
+                     onTap: (){
+                       (Get.to(WelcomeView()));
+                     },
+                     child: CircleAvatar( 
+                       backgroundColor: Colors.white,
+                       child: SvgPicture.asset("assets/images/facebook.svg"),),
+                   ),
                    CircleAvatar( 
                      backgroundColor: Colors.white,
                      child: SvgPicture.asset("assets/images/phone.svg"),),
-                   CircleAvatar( 
-                     backgroundColor: Colors.white,
-                     child: SvgPicture.asset("assets/images/google.svg"),),
+                   GestureDetector(
+                     onTap: (){
+                       controller.login();
+                     },
+                     child: CircleAvatar( 
+                       backgroundColor: Colors.white,
+                       child: SvgPicture.asset("assets/images/google.svg"),),
+                   ),
                  ],),
                  SizedBox(height: 25,),
                  Align(
